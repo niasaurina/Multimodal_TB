@@ -1,0 +1,21 @@
+import os
+import cv2
+import numpy as np
+#from ultralytics import YOLO
+#pip install opencv-python
+#pip3 install cv2
+
+path = "C:\\Users\\ASUS\\PycharmProjects\\pythonProject10\\datasets\\tb\\images\\ori"
+files = os.listdir(path)
+
+for item in files:
+    print("name_file : " + item)
+    image = cv2.imread(path + "/" + item)
+
+    #convert the BGR image to HSV image
+    hsv_img = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    cv2.imwrite("C:\\Users\\ASUS\\PycharmProjects\\pythonProject10\\datasets\\tb\\images\\HSV" + item, hsv_img)
+
+    #convert the BGR image to LAB image
+    lab_img = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+    cv2.imwrite("C:\\Users\\ASUS\\PycharmProjects\\pythonProject10\\datasets\\tb\\images\\Cie_Lab" + item, lab_img)
